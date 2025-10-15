@@ -1,0 +1,10 @@
+Flask
+werkzeug
+hashlib
+datetime
+jwt
+mysql-connector-python
+math
+random
+string
+json
