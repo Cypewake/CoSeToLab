@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用户控制面板</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .card { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 5px; }
+        button { padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>欢迎, {{ username }}</h1>
+    
+    <div class="card">
+        <h2>用户信息</h2>
+        <p><strong>用户名:</strong> {{ username }}</p>
+        <p><strong>角色:</strong> {{ role }}</p>
+    </div>
+    
+    <div class="card">
+        <h2>认证方式测试</h2>
+        <p>你的 Session 已设置。</p>
+        <p>你的 Cookie 已设置。</p>
+        <p>你的 JWT Token 已生成。</p>
+        
+        <button onclick="fetch('/get_token').then(r => r.json()).then(d => { document.getElementById('token').value = d.token })">获取 Token</button>
+        <input type="text" id="token" style="width: 100%; margin-top: 10px; padding: 10px;">
+        
+        <button onclick="window.location.href='/admin'">尝试访问管理员页面</button>
+    </div>
+    
+    <div class="card">
+        <h2>导航</h2>
+        <button onclick="window.location.href='/cookie_test'">Cookie 测试</button>
+        <button onclick="window.location.href='/session_test'">Session 测试</button>
+        <button onclick="window.location.href='/token_test'">Token 测试</button>
+        <button onclick="window.location.href='/chat'">聊天室</button>
+        <button onclick="window.location.href='/logout'">退出登录</button>
+    </div>
+</body>
+</html>

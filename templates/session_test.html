@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session 测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .card { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 5px; }
+        button { padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Session 测试</h1>
+    
+    <div class="card">
+        <h2>当前 Session 信息</h2>
+        <p><strong>用户名:</strong> {{ username }}</p>
+        <p>Session 存储在服务器端，相对安全</p>
+    </div>
+    
+    <div class="card">
+        <h2>Session 安全性</h2>
+        <p>1. Session ID 存储在客户端 Cookie 中，如果被窃取，攻击者可以冒充用户</p>
+        <p>2. Session 数据存储在服务器端，相对安全，但需要妥善管理</p>
+        <p>3. 在本靶场中，如果 Session 被窃取，攻击者可以直接访问受保护资源</p>
+    </div>
+    
+    <button onclick="window.location.href='/'">返回首页</button>
+</body>
+</html>

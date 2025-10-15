@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookie 测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .card { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 5px; }
+        button { padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Cookie 测试</h1>
+    
+    <div class="card">
+        <h2>当前 Cookie</h2>
+        <p id="cookie-value">正在加载...</p>
+        <script>
+            document.getElementById('cookie-value').textContent = `auth_token: ${document.cookie}`;
+        </script>
+    </div>
+    
+    <div class="card">
+        <h2>设置自定义 Cookie</h2>
+        <input type="text" id="cookie-value-input" placeholder="输入 Cookie 值" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+        <button onclick="fetch('/set_cookie', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: `value=${encodeURIComponent(document.getElementById('cookie-value-input').value)}` })">设置 Cookie</button>
+    </div>
+    
+    <div class="card">
+        <h2>Cookie 安全性</h2>
+        <p>1. Cookie 存储在客户端浏览器中，容易受到 XSS 攻击</p>
+        <p>2. Cookie 可以被篡改，如果不使用 HttpOnly 和 Secure 标志，更加不安全</p>
+        <p>3. 在本靶场中，auth_token Cookie 存储了 JWT Token，如果被窃取，攻击者可以直接使用</p>
+    </div>
+    
+    <button onclick="window.location.href='/'">返回首页</button>
+</body>
+</html>

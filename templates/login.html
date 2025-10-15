@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登录</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 400px; margin: 0 auto; padding: 20px; }
+        .card { border: 1px solid #ddd; padding: 20px; border-radius: 5px; }
+        input { width: 100%; padding: 10px; margin-bottom: 10px; }
+        button { padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>用户登录</h2>
+        <form method="post">
+            <input type="text" name="username" placeholder="用户名" required><br>
+            <input type="password" name="password" placeholder="密码" required><br>
+            <button type="submit">登录</button>
+        </form>
+    </div>
+    <button onclick="window.location.href='/'">返回首页</button>
+</body>
+</html>

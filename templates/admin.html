@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>管理员控制台</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .card { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 5px; }
+        button { padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>管理员控制台</h1>
+    
+    <div class="card">
+        <h2>敏感数据</h2>
+        <p>{{ data }}</p>
+    </div>
+    
+    <div class="card">
+        <h2>访问方式</h2>
+        <p>1. 通过 Cookie 访问: 在浏览器中设置 auth_token Cookie 为有效的管理员 Token</p>
+        <p>2. 通过 Session 访问: 登录为 admin 用户</p>
+        <p>3. 通过 URL Token 访问: 在 URL 中添加 ?token= 参数，值为有效的管理员 Token</p>
+    </div>
+    
+    <button onclick="window.location.href='/'">返回首页</button>
+</body>
+</html>

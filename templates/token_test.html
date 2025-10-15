@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Token 测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .card { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 5px; }
+        button { padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Token 测试</h1>
+    
+    <div class="card">
+        <h2>当前 Token 信息</h2>
+        <p><strong>用户名:</strong> {{ username }}</p>
+        <p><strong>角色:</strong> {{ role }}</p>
+    </div>
+    
+    <div class="card">
+        <h2>Token 操作</h2>
+        <input type="text" id="token-input" placeholder="输入 Token" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+        <button onclick="window.location.href='/token_test?token=' + encodeURIComponent(document.getElementById('token-input').value)">验证 Token</button>
+    </div>
+    
+    <div class="card">
+        <h2>Token 安全性</h2>
+        <p>1. Token (JWT) 可以在客户端或服务器端验证</p>
+        <p>2. 如果密钥泄露，攻击者可以生成任意 Token</p>
+        <p>3. 在本靶场中，尝试修改 Token 的内容，观察是否可以被验证</p>
+    </div>
+    
+    <button onclick="window.location.href='/'">返回首页</button>
+</body>
+</html>

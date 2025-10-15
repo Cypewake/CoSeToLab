@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>认证方式测试靶场</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .card { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 5px; }
+        button { padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>认证方式测试靶场</h1>
+    
+    <div class="card">
+        <h2>关于这个靶场</h2>
+        <p>这个靶场用于演示 Cookie、Session 和 Token 三种认证方式的使用和安全性差异。</p>
+        <p>你可以通过注册、登录来体验不同认证方式的工作原理。</p>
+    </div>
+    
+    <div class="card">
+        <h2>可用测试账号</h2>
+        <p><strong>普通用户:</strong> user1 / password1</p>
+        <p><strong>管理员:</strong> admin / adminpass</p>
+    </div>
+    
+    <div class="card">
+        <h2>功能入口</h2>
+        <button onclick="window.location.href='/register'">注册新用户</button>
+        <button onclick="window.location.href='/login'">用户登录</button>
+        <button onclick="window.location.href='/cookie_test'">Cookie 测试</button>
+        <button onclick="window.location.href='/session_test'">Session 测试</button>
+        <button onclick="window.location.href='/token_test'">Token 测试</button>
+	<button onclick="window.location.href='/beijin'">背景与基础知识点</button>
+    </div>
+    
+    <script>
+        // 检查登录状态
+        fetch('/dashboard')
+            .then(response => {
+                if (response.status === 200) {
+                    document.body.innerHTML += "<div class='card'><h2>已登录</h2><p>你已登录系统</p><button onclick='window.location.href=\"/logout\"'>退出登录</button></div>";
+                }
+            });
+    </script>
+</body>
+</html>
